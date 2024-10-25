@@ -6,7 +6,7 @@ const AddExpenseForm = () => {
   const {expenses, setExpenses} = useContext(AppContext);
   // Exercise: Create name and cost to state variables
   const [name, setName] = useState("");
-  const [cost, setCost] = useState(0); 
+  const [cost, setCost] = useState<number>(0); 
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,7 +26,16 @@ const handleNameChange = (e: any) => {
   setName(e.target.value);
 }
 const handleCostChange = (e: any) => {
-  setCost(e.target.value);
+  const value = e.target.value; 
+    const numericValue = Number(value); 
+
+    
+    if (!isNaN(numericValue)) {
+      setCost(numericValue); 
+    } else {
+      setCost(0); 
+    }
+
 }
 
 
