@@ -102,7 +102,7 @@ test("Budget balance verification", () => {
 
   // Verify values after addition
   expect(screen.getByText(/remaining: \$900/i)).toBeInTheDocument();
-  expect(screen.getByText(/spent so far: \$100/i)).not.toBeInTheDocument();
+  expect(screen.getByText(/spent so far: \$100/i)).toBeInTheDocument();
   expect(initialBudget).toBe(
     remainingBalanceAfterAdd + totalExpenditureAfterAdd
   ); // Validate equation
